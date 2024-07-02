@@ -5,7 +5,11 @@
   "permissions": [
     "declarativeNetRequest",
     "storage",
-    "activeTab"
+    "activeTab",
+    "declarativeNetRequestFeedback"
+  ],
+  "host_permissions": [
+    "*://*/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -29,5 +33,11 @@
     "16": "block.jpg",
     "48": "block.jpg",
     "128": "block.jpg"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [ "blocked.html", "blocked.js" ],
+      "matches": [ "<all_urls>" ]
+    }
+  ]
 }
