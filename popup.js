@@ -9,6 +9,15 @@ document.getElementById('blockBtn').addEventListener('click', () => {
       chrome.storage.sync.set({ blockedSites }, () => {
         console.log('Blocked sites updated:', blockedSites);
         updateBlockedSitesList();
+        // Clear input fields after blocking
+        document.getElementById('urlInput').value = '';
+        document.getElementById('passwordInput').value = '';
+        // Reload all tabs
+        chrome.tabs.query({}, function(tabs) {
+          tabs.forEach(tab => {
+            chrome.tabs.reload(tab.id);
+          });
+        });
       });
     });
   }

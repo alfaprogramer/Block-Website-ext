@@ -4,20 +4,88 @@
     <title>Website Blocker</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
-        margin: 10px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #000;
+        color: #fff;
+        width: 300px;
+        box-sizing: border-box;
       }
-      input, button {
+      h1 {
+        font-size: 24px;
+        color: #fff;
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: 0 0 5px #00f, 0 0 10px #00f, 0 0 20px #00f, 0 0 40px #00f, 0 0 80px #00f;
+      }
+      .input-container {
+        margin-bottom: 15px;
+      }
+      input[type="text"],
+      input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 10px;
         margin: 5px 0;
+        border: 1px solid #555;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #222;
+        color: #fff;
+      }
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 15px 0;
+      }
+      button {
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: #fff;
+        color: #000;
+        font-size: 16px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: box-shadow 0.3s;
+        width: 100%;
+        max-width: 120px;
+      }
+      #blockBtn:hover {
+        box-shadow: 0 0 5px #f00, 0 0 10px #f00, 0 0 20px #f00, 0 0 40px #f00, 0 0 80px #f00;
+      }
+      #showBtn {
+        background-color: #fff;
+        color: #000;
+      }
+      #blockedSitesList {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+      #blockedSitesList li {
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #333;
+        border: 1px solid #555;
+        border-radius: 4px;
       }
     </style>
   </head>
   <body>
     <h1>Website Blocker</h1>
-    <input type="text" id="urlInput" placeholder="Enter URL">
-    <input type="password" id="passwordInput" placeholder="Enter Password">
-    <button id="blockBtn">Block</button>
-    <button id="showBtn">Show Blocked Sites</button>
+    <div class="input-container">
+      <input type="text" id="urlInput" placeholder="Enter URL">
+    </div>
+    <div class="input-container">
+      <input type="password" id="passwordInput" placeholder="Enter Password">
+    </div>
+    <div class="button-container">
+      <button id="blockBtn">Block</button>
+      <button id="showBtn">Blocked Sites</button>
+    </div>
     <ul id="blockedSitesList"></ul>
     <script src="popup.js"></script>
   </body>
